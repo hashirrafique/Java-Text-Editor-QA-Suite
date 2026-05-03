@@ -15,10 +15,9 @@ import org.apache.logging.log4j.Logger;
 
 import dto.Documents;
 import dto.Pages;
-import pl.EditorPO;
 
 public class EditorDBDAO implements IEditorDBDAO {
-	private static final Logger LOGGER = LogManager.getLogger(EditorPO.class);
+	private static final Logger LOGGER = LogManager.getLogger(EditorDBDAO.class);
 	Connection conn = null;
 
 	public EditorDBDAO() {
@@ -275,14 +274,16 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 			// Get the pageId of the updated page
 			String pageIdQuery = "SELECT pageId FROM pages WHERE fileId = ? AND pageNumber = ?";
-			PreparedStatement pageIdStmt = conn.prepareStatement(pageIdQuery);
-			pageIdStmt.setInt(1, fileId);
-			pageIdStmt.setInt(2, pageNumber);
-			ResultSet pageIdRS = pageIdStmt.executeQuery();
-			if (!pageIdRS.next()) {
-				throw new SQLException("Page not found for the given fileId and pageNumber");
+			int pageId;
+			try (PreparedStatement pageIdStmt = conn.prepareStatement(pageIdQuery)) {
+				pageIdStmt.setInt(1, fileId);
+				pageIdStmt.setInt(2, pageNumber);
+				ResultSet pageIdRS = pageIdStmt.executeQuery();
+				if (!pageIdRS.next()) {
+					throw new SQLException("Page not found for the given fileId and pageNumber");
+				}
+				pageId = pageIdRS.getInt("pageId");
 			}
-			int pageId = pageIdRS.getInt("pageId");
 
 //	        // Update transliteration
 //	        String transliteratedText = Transliteration.transliterate(content);
@@ -298,6 +299,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			posStmt = conn.prepareStatement(deletePosQuery);
 			posStmt.setInt(1, pageId);
 			posStmt.executeUpdate();
+			posStmt.close();
 
 			String insertPosQuery = "INSERT INTO pos (pageId, word, pos) VALUES (?, ?, ?)";
 			posStmt = conn.prepareStatement(insertPosQuery);
@@ -317,6 +319,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			lemmaStmt = conn.prepareStatement(deleteLemmaQuery);
 			lemmaStmt.setInt(1, pageId);
 			lemmaStmt.executeUpdate();
+			lemmaStmt.close();
 
 			String insertLemmaQuery = "INSERT INTO lemmatization (pageId, word, lemma) VALUES (?, ?, ?)";
 			lemmaStmt = conn.prepareStatement(insertLemmaQuery);
@@ -334,6 +337,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			rootStmt = conn.prepareStatement(deleteRootQuery);
 			rootStmt.setInt(1, pageId);
 			rootStmt.executeUpdate();
+			rootStmt.close();
 
 			String insertRootQuery = "INSERT INTO rootextraction (pageId, word, root) VALUES (?, ?, ?)";
 			rootStmt = conn.prepareStatement(insertRootQuery);
@@ -351,6 +355,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			segmentStmt = conn.prepareStatement(deleteSegmentQuery);
 			segmentStmt.setInt(1, pageId);
 			segmentStmt.executeUpdate();
+			segmentStmt.close();
 
 			String insertSegmentQuery = "INSERT INTO wordsegementation (pageId, word, segment) VALUES (?, ?, ?)";
 			segmentStmt = conn.prepareStatement(insertSegmentQuery);
@@ -368,6 +373,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			stemStmt = conn.prepareStatement(deleteStemQuery);
 			stemStmt.setInt(1, pageId);
 			stemStmt.executeUpdate();
+			stemStmt.close();
 
 			String insertStemQuery = "INSERT INTO stemmation (pageId, word, stem) VALUES (?, ?, ?)";
 			stemStmt = conn.prepareStatement(insertStemQuery);
@@ -385,6 +391,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			pklStmt = conn.prepareStatement(deletePklQuery);
 			pklStmt.setInt(1, pageId);
 			pklStmt.executeUpdate();
+			pklStmt.close();
 
 			String insertPklQuery = "INSERT INTO pkl (pageId, word, pklScore) VALUES (?, ?, ?)";
 			pklStmt = conn.prepareStatement(insertPklQuery);
@@ -402,6 +409,7 @@ public class EditorDBDAO implements IEditorDBDAO {
 			pmiStmt = conn.prepareStatement(deletePmiQuery);
 			pmiStmt.setInt(1, pageId);
 			pmiStmt.executeUpdate();
+			pmiStmt.close();
 
 			String insertPmiQuery = "INSERT INTO pmi (pageId, word, pmiScore) VALUES (?, ?, ?)";
 			pmiStmt = conn.prepareStatement(insertPmiQuery);

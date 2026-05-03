@@ -10,11 +10,10 @@ import org.apache.logging.log4j.Logger;
 
 import net.oujda_nlp_team.AlKhalil2Analyzer;
 import net.oujda_nlp_team.entity.Result;
-import pl.EditorPO;
 
 public class POSTagger {
     public static Map<String, List<String>> extractPOS(String text) {
-    	final Logger logger = LogManager.getLogger(EditorPO.class);
+    	final Logger logger = LogManager.getLogger(POSTagger.class);
 
         Map<String, List<String>> wordPosMap = new HashMap<>();
 

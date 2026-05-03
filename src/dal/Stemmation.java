@@ -7,12 +7,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.oujda_nlp_team.AlKhalil2Analyzer;
-import pl.EditorPO;
 
 public class Stemmation {
 
     public static Map<String, String> stemWords(String text) {
-    	final Logger logger = LogManager.getLogger(EditorPO.class);
+    	final Logger logger = LogManager.getLogger(Stemmation.class);
 
         Map<String, String> wordStemMap = new HashMap<>();
 
@@ -37,7 +36,7 @@ public class Stemmation {
             }
         } catch (Exception e) {
             System.err.println("Error while stemming words: " + e.getMessage());
-            logger.error("Error while extracting roots: " + e.getMessage());
+            logger.error("Error while stemming words: " + e.getMessage());
         }
 
         return wordStemMap;

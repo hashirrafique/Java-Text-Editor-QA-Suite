@@ -7,13 +7,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.oujda_nlp_team.AlKhalil2Analyzer;
-import pl.EditorPO;
 
 public class RootExtraction {
 
 
     public static Map<String, String> extractRoots(String text) {
-    	final Logger logger = LogManager.getLogger(EditorPO.class);
+    	final Logger logger = LogManager.getLogger(RootExtraction.class);
         Map<String, String> wordRootMap = new HashMap<>();
 
         String[] words = text.split("\\s+");

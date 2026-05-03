@@ -13,10 +13,9 @@ import org.apache.logging.log4j.Logger;
 import dal.IFacadeDAO;
 import dto.Documents;
 import dto.Pages;
-import pl.EditorPO;
 
 public class EditorBO implements IEditorBO {
-	private static final Logger LOGGER = LogManager.getLogger(EditorPO.class);
+	private static final Logger LOGGER = LogManager.getLogger(EditorBO.class);
 
 	private IFacadeDAO db;
 

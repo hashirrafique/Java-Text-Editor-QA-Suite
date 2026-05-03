@@ -8,7 +8,6 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import pl.EditorPO;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class DatabaseConnection {
     private String url;
     private String username;
     private String password;
-    final Logger LOGGER = LogManager.getLogger(EditorPO.class);
+    final Logger LOGGER = LogManager.getLogger(DatabaseConnection.class);
 
     private DatabaseConnection() {
         try {
