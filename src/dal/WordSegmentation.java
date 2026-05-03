@@ -9,14 +9,13 @@ import org.apache.logging.log4j.Logger;
 
 import net.oujda_nlp_team.AlKhalil2Analyzer;
 import net.oujda_nlp_team.entity.Result;
-import pl.EditorPO;
 
 public class WordSegmentation {
 
 	public static Map<String, String> extractSegments(String text) {
 
 		Map<String, String> wordSegmentMap = new LinkedHashMap<>();
-		final Logger logger = LogManager.getLogger(EditorPO.class);
+		final Logger logger = LogManager.getLogger(WordSegmentation.class);
 
 		String[] words = text.split("\\s+");
 

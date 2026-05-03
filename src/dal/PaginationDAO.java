@@ -15,7 +15,7 @@ public class PaginationDAO {
 		List<Pages> pages = new ArrayList<Pages>();
 		if(fileContent==null || fileContent.isEmpty())
 		{
-			pages.add(new Pages(0, 0, pageNumber, pageContent.toString()));
+			pages.add(new Pages(0, 0, pageNumber, pageContent));
 			return pages;
 		}
 		for(int i = 0; i < fileContent.length(); i++)

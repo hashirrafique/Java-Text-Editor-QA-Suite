@@ -527,14 +527,7 @@ public class EditorPO extends JFrame {
 				if (result instanceof Map) {
 					Map<?, ?> resultMap = (Map<?, ?>) result;
 
-					if (resultMap.keySet().iterator().next() instanceof String) {
-						for (Map.Entry<?, ?> entry : resultMap.entrySet()) {
-							resultTableModel.addRow(new Object[] { entry.getKey(), entry.getValue() });
-						}
-					}
-
-					else if (resultMap.keySet().iterator().next() instanceof String
-							&& resultMap.values().iterator().next() instanceof List) {
+					if (!resultMap.isEmpty()) {
 						for (Map.Entry<?, ?> entry : resultMap.entrySet()) {
 							resultTableModel.addRow(new Object[] { entry.getKey(), entry.getValue() });
 						}

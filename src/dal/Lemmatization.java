@@ -7,12 +7,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.oujda_nlp_team.AlKhalil2Analyzer;
-import pl.EditorPO;
 
 public class Lemmatization {
 
 	public static Map<String, String> lemmatizeWords(String text) {
-		final Logger logger = LogManager.getLogger(EditorPO.class);
+		final Logger logger = LogManager.getLogger(Lemmatization.class);
 		Map<String, String> wordLemmaMap = new HashMap<>();
 
 		String[] words = text.split("\\s+");

@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import bll.IEditorBO;
 
 public class FileImporter {
-	private static final Logger logger = LogManager.getLogger(EditorPO.class);
+	private static final Logger logger = LogManager.getLogger(FileImporter.class);
     private IEditorBO businessObj;
 
     public FileImporter(IEditorBO businessObj) {

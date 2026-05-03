@@ -40,7 +40,7 @@ public class SearchFrame extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setLayout(new CardLayout());
+		setLayout(new BorderLayout());
 
         tableModel = new SearchResultsTableModel();
         resultsTable = new JTable(tableModel) {
