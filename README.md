@@ -104,11 +104,12 @@ Java-Text-Editor-QA-Suite/
 │   └── pl/
 │       └── FileImporterTest.java      # Issue #5
 │
-├── resource/                     # Third-party JARs (Arabic NLP, MariaDB)
+├── resource/                     # Third-party JARs (Arabic NLP, MariaDB driver)
+├── local-maven-repo/             # Local Maven repository for bundled NLP JARs
 ├── Report/                       # Test reports (surefire XML/TXT)
 ├── logs/                         # Application logs
 ├── pom.xml                       # Maven build configuration
-├── config.properties             # Database connection settings
+├── config.properties             # Database connection settings (set your password)
 └── README.md
 ```
 
@@ -157,11 +158,11 @@ mvn package -DskipTests
 
 ### Configure the Database
 
-Edit `config.properties`:
+Edit `config.properties` and set your MariaDB password:
 ```properties
 db.url      = jdbc:mariadb://localhost:3306/realeditor
 db.username = root
-db.password = your_password
+db.password = your_password_here
 db.type     = dal.MariaDBDAOFactory
 ```
 
