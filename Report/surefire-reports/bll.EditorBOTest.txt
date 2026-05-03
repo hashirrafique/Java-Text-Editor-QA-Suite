@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: bll.EditorBOTest
 -------------------------------------------------------------------------------
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s -- in bll.EditorBOTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s -- in bll.EditorBOTest
