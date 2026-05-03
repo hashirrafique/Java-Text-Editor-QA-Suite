@@ -258,7 +258,6 @@ public class EditorPO extends JFrame {
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						logger.error(e1.getMessage());
 					}
@@ -710,7 +709,6 @@ public class EditorPO extends JFrame {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				while (wordCountRunning) {
 		            try {
 		                Thread.sleep(500); 

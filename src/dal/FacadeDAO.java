@@ -35,56 +35,47 @@ public class FacadeDAO implements IFacadeDAO {
 
 	@Override
 	public String transliterateInDB(int pageId, String arabicText) {
-		// TODO Auto-generated method stub
 		return mariaDB.transliterateInDB(pageId, arabicText);
 	}
 
 
 	@Override
 	public Map<String, String> lemmatizeWords(String text) {
-		// TODO Auto-generated method stub
 		return mariaDB.lemmatizeWords(text);
 	}
 
 	@Override
 	public  Map<String, List<String>> extractPOS(String text) {
-		// TODO Auto-generated method stub
 		return mariaDB.extractPOS(text);
 	}
 
 	@Override
 	public Map<String, String> extractRoots(String text) {
-		// TODO Auto-generated method stub
 		return mariaDB.extractRoots(text);
 	}
 
 	@Override
 	public double performTFIDF(List<String> unSelectedDocsContent, String selectedDocContent) {
-		// TODO Auto-generated method stub
 		return mariaDB.performTFIDF(unSelectedDocsContent, selectedDocContent);
 	}
 
 	@Override
 	public Map<String, Double> performPMI(String content) {
-		// TODO Auto-generated method stub
 		return mariaDB.performPMI(content);
 	}
 
 	@Override
 	public Map<String, Double> performPKL(String content) {
-		// TODO Auto-generated method stub
 		return mariaDB.performPKL(content);
 	}
 
 	@Override
 	public Map<String, String> stemWords(String text) {
-		// TODO Auto-generated method stub
 		return mariaDB.stemWords(text);
 	}
 
 	@Override
 	public Map<String, String>segmentWords(String text) {
-		// TODO Auto-generated method stub
 		return mariaDB.segmentWords(text);
 	}
 

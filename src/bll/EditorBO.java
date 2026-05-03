@@ -116,19 +116,16 @@ public class EditorBO implements IEditorBO {
 
 	@Override
 	public Map<String, String> lemmatizeWords(String text) {
-		// TODO Auto-generated method stub
 		return db.lemmatizeWords(text);
 	}
 
 	@Override
 	public Map<String, List<String>> extractPOS(String text) {
-		// TODO Auto-generated method stub
 		return db.extractPOS(text);
 	}
 
 	@Override
 	public Map<String, String> extractRoots(String text) {
-		// TODO Auto-generated method stub
 		return db.extractRoots(text);
 	}
 
@@ -150,13 +147,11 @@ public class EditorBO implements IEditorBO {
 
 	@Override
 	public Map<String, String> stemWords(String text) {
-		// TODO Auto-generated method stub
 		return db.stemWords(text);
 	}
 
 	@Override
 	public Map<String, String> segmentWords(String text) {
-		// TODO Auto-generated method stub
 		return db.segmentWords(text);
 	}
 

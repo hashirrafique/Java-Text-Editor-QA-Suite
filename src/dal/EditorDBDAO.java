@@ -581,19 +581,16 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 	@Override
 	public synchronized Map<String, String> lemmatizeWords(String text) {
-		// TODO Auto-generated method stub
 		return Lemmatization.lemmatizeWords(PreProcessText.preprocessText(text));
 	}
 
 	@Override
 	public synchronized Map<String, List<String>> extractPOS(String text) {
-		// TODO Auto-generated method stub
 		return POSTagger.extractPOS(PreProcessText.preprocessText(text));
 	}
 
 	@Override
 	public synchronized Map<String, String> extractRoots(String text) {
-		// TODO Auto-generated method stub
 		return RootExtraction.extractRoots(PreProcessText.preprocessText(text));
 	}
 
@@ -608,7 +605,6 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 	@Override
 	public synchronized Map<String, Double> performPMI(String content) {
-		// TODO Auto-generated method stub
 		PMICalculator pmi = new PMICalculator(content);
 		Map<String, Double> pmiScores = pmi.calculatePMIForAllBigrams();
 
@@ -617,7 +613,6 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 	@Override
 	public synchronized Map<String, Double> performPKL(String content) {
-		// TODO Auto-generated method stub
 		PKLCalculator pkl = new PKLCalculator(content);
 		Map<String, Double> pklScores = pkl.calculatePKLForAllWords();
 		return pklScores;
@@ -625,13 +620,11 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 	@Override
 	public synchronized Map<String, String> stemWords(String text) {
-		// TODO Auto-generated method stub
 		return Stemmation.stemWords(PreProcessText.preprocessText(text));
 	}
 
 	@Override
 	public synchronized Map<String, String> segmentWords(String text) {
-		// TODO Auto-generated method stub
 		return WordSegmentation.extractSegments(PreProcessText.preprocessText(text));
 	}
 
